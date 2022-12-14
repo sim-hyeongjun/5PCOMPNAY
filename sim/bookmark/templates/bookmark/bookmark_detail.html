@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+
+
+
+
+{% block title %}
+장고 아들
+{% endblock %}
+
+{% block extra-style %}
+
+
+{% endblock %}
+
+
+
+{% block content %}
+<div id="content">
+    <h1>{{ object.title }}</h1>
+    <ul>
+        <li><a href="{{ object.url}}">{{ object.url }}</a></li>
+    </ul>
+
+</div>   
+{% endblock %}
+
+
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div id="content">
+        <h1>{{ object.title }}</h1>
+        <ul>
+            <li><a href="{{ object.url}}">{{ object.url }}</a></li>
+        </ul>
+    </div>
+</body>

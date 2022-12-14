@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+
+{% block title %}
+장고 아들
+{% endblock %}
+
+{% block extra-style %}
+<style >
+    #content{
+        width: 250px;
+        margin: 0 auto;
+        margin-top: 10%;
+    }
+
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+<div id="content">
+    <h1>Bookmark list</h1>
+    <ul>
+        {% for bookmark in object_list %}
+            <li><a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
+    
+{% endblock %}
+
+
+
+{% block footer %}
+
+{% endblock %}
+

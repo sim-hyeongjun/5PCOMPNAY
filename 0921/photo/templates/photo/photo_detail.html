@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+<!-- 제목 블록 Start (기본값 My Blog Page) -->
+{% block title %}
+{% endblock %}
+<!-- 제목 블록 End -->
+
+<!-- 스타일 블록 Start -->
+{% block extra-style %}
+
+{% endblock %}
+<!-- 스타일 블록 End -->
+
+<!-- 콘텐츠 블록 Start -->
+{% block content %}
+    <h1>포토 디테일</h1>
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-6">
+            <img class="card-img-top mb-5 mb-md-0" src="{{ object.image.url }}" alt="{{ photo }}">
+        </div>
+        <div class="col-md-6">
+            <div class="mb-1">Album:
+                <a href="{% url 'photo:album_detail' object.album.id %}" class="btn btn-outline-dark">
+                    {{ object.album.name }}
+                </a>
+            </div>
+            <h1 class="display-5 fw-bolder">{{ object }}</h1>
+            <div class="fs-5 mb-5">
+                <span>Date : {{ object.upload_dt|date:"Y-m-d"}}</span>
+            </div>
+            <p class="lead">{{ object.description }}</p>
+        </div>
+    </div>
+{% endblock %}
+<!-- 콘텐츠 블록 End -->
+
+<!-- 스크립트 블록 Start -->
+{% block extra-script %}
+{% endblock %}
+<!-- 스크립트 블록 End -->

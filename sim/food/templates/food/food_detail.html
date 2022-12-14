@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+<!-- 제목 블록 Start (기본값 My Blog Page) -->
+{% block title %}
+{% endblock %}
+<!-- 제목 블록 End -->
+
+<!-- 스타일 블록 Start -->
+{% block extra-style %}
+<style>
+    .main{
+    margin: 0 auto;
+    position: relative;
+    width: 800px;
+    min-height: 90vh;
+
+    }
+    .title{
+        margin-top: 10%;
+    }
+
+</style>
+{% endblock %}
+<!-- 스타일 블록 End -->
+
+<!-- 콘텐츠 블록 Start -->
+{% block content %}
+
+
+
+<div class="main">
+
+    
+    <h1 class="title">식당 정보 </h1>
+    <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-6">
+            <img class="card-img-top mb-5 mb-md-0" src="{{ object.image.url }}" alt="{{ food }}">
+        </div>
+        <div class="col-md-6 ">
+            <div class="mb-1">zip:
+                <a href="{% url 'food:zip_detail' object.zip.id %}" class="btn btn-outline-dark">
+                    {{ object.zip.name }}
+                </a>
+            </div>
+            <h1 class="display-5 fw-bolder">{{ object }}</h1>
+            <div class="fs-5 mb-5">
+                <span>Date : {{ object.upload_dt|date:"Y-m-d"}}</span>
+            </div>
+            <p class="lead">{{ object.description }}</p>
+        </div>
+    </div>
+    <br>
+    <hr class="MuiDivider-root" style="height:8px;background-color:#f5f5f5 ">
+    <h3>위치</h3>
+    <div id="map" style="width:49%;height:400px; margin-top:10px;"></div>
+    <br>
+    <hr class="MuiDivider-root" style="height:8px;background-color:#f5f5f5 ">
+    <p>댓글창</p>
+    <div id="disqus_thread"></div>
+</div>
+
+{% endblock %}
+<!-- 콘텐츠 블록 End -->
+
+<!-- 스크립트 블록 Start -->
+{% block extra-script %}
+<script>
+    //네이버 지도
+    
+    var mapOptions = {
+        center: new naver.maps.LatLng('{{ food.lat }}', '{{ food.lng }}'),
+        zoom: 17
+    };
+    var map =new naver.maps.Map('map',mapOptions)
+    var markerOptions = {
+        position: new naver.maps.LatLng('{{ food.lat }}', '{{ food.lng }}'),
+        map:map,
+        icon: 'https://w7.pngwing.com/pngs/611/60/png-transparent-google-map-maker-computer-icons-google-maps-map-icon-s-maps-google-map-navigation-button-illustration-miscellaneous-angle-search-engine-optimization.png'
+    };
+
+    //var marker = new naver.maps.Marker(markerOptions);
+    
+
+
+
+    // 댓글기능  
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+        this.page.url = '{{ disqus_url }}';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '{{ disqus_id }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.title = '{{ disqus_title }}';
+    };
+    
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://{{ disqus_short }}.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endblock %}
+<!-- 스크립트 블록 End -->

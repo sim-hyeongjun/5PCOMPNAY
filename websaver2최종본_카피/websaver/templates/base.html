@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 제목 블록 Start (기본값 My Blog Page) -->
+    <title>    
+        {% block title %}
+            My Blog Page
+        {% endblock %}
+    </title>
+    <!-- 제목 블록 End -->
+
+    <!-- Bootstrap CSS only -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- font change [pretendard] -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css" />
+    
+    <!-- 공통 스타일 적용 Start -->
+    <style>
+        * {
+            font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #F5F5F7; 
+            background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);          
+        }
+
+        #main-wrapper{
+            margin-bottom: 60px;
+            height: auto;
+            min-height: 100%;
+            padding-bottom: 266px;
+        }
+        #main-content{
+            max-width: 1300px;
+            
+        }
+        footer {
+            height: 266px;
+            position: relative;
+            transform : translateY(-100%);
+            width: 100%;
+            padding: 60px 0;
+            background: #F5EFE6;
+        }
+        #contact_info  * {
+            color: #96989c;
+            font-size: 14px;
+        }
+    
+        footer .footer_logo {
+            padding-bottom: 24px;
+            color: rgb(228, 224, 224);
+            font-weight: 600;
+        }
+
+
+        .main_nav{
+            position: relative;
+            margin-left: 0%;
+            background-color : #ebedee;
+            border-radius: 30px 30px 0px 0px;
+            box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+        }
+        .nav_card{
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border-radius: 30px 30px 30px 30px;
+            transition-duration: 0.6s;
+            background-color: #ebedee;
+        }
+
+        .nav_card:hover{
+            background-color: #ffffff; /* Green */
+            color: white;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            transition : 1s;
+            transform: scale(1);
+        }
+
+        .car{
+            height: 80px;
+            position: relative;
+            left: 7%;
+            width: 20%;
+            border-radius:20px ; 
+            margin-right: 2%;
+        }
+        .card_btn{
+            width: 100%;
+            height: 100%;
+            color: darkslategray;
+            text-shadow: 0 0 black;
+        }
+        .logo{
+            position:relative;
+            left: 43%;
+            width: 1000px;
+            top: 0px;
+
+        }
+        .logo_img{
+            width: 30%;
+        }
+
+        .main{
+        position: relative;
+        padding-top: 2%;
+        padding-bottom: 4%;
+        background-color: #ffffff;
+        box-shadow :0 10px 10px rgb(0 0 0 / 20%);
+        border-radius: 0px 0px 30px 30px;
+        z-index: 2;
+
+        }
+
+        .title{
+            font-size: 30px;
+            text-align: center;
+        }
+        .card-title{
+           font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            
+
+        }
+        @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+        }
+    
+        .test_obj {
+            position: relative;
+            animation: fadeInUp 1.5s;
+        }
+        @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, -100%, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+        }
+        .logo_obj {
+        position: relative;
+        animation: fadeInDown 1.5s;
+        }
+        /* after */
+        @font-face {
+            font-family: 'LeferiPoint-WhiteObliqueA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+        }
+        .card_btn span {
+            display: inline-block;
+            
+        }
+        .card_btn:hover span{
+            font-weight:bold;
+        }
+        .card_btn:hover span::after {
+            animation: drawline 1s ease;
+        }
+
+        .card_btn span::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 10px;
+            margin:-10px 0 0 0;
+            background: moccasin;
+        }
+
+        @keyframes drawline {
+            0% {
+                width: 0
+            }
+            100% {
+                width: 100%;
+            }
+
+        }
+        .card_btn{
+            font-family: LeferiPoint-WhiteObliqueA;
+            font-size: 60px;
+            padding-bottom: 20px;
+    
+        }
+    </style>
+    <!-- 공통 스타일 적용 End -->
+
+    <!-- 스타일 블록 Start -->
+    {% block extra-style %}
+    {% endblock %}
+    <!-- 스타일 블록 End -->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=bw5cv88cft"></script>
+
+</head>
+
+<body>
+
+
+    <div id="main-wrapper">
+        <div class="logo logo_obj">
+            <a href="{% url 'home' %}">
+                <img class="logo_img" src="../media/new_od_logo.png" alt="odcompany">
+            </a>
+        </div>
+        
+        <div id="main-content" class="container test_obj" >
+            <div class="main_nav">
+                <div class="card-deck"  id ="id_card-deck">
+                    <div class="car nav_card" >
+                        <div class="card-body">
+                            <a class="card_btn" href="{% url 'deal:index' %}" style="text-decoration:none;"><div class="card-title"><span>실거래가</span></div></a>
+                        </div>
+                    </div>
+                    <div class="car nav_card">
+                        <div class="card-body">
+                            <a class="card_btn" href="{% url 'auction:index' %}" style="text-decoration:none;"><div class="card-title"><span><span>경매</span></div></a>     
+                        </div>
+                    </div>
+                    <div class="car nav_card">
+                        <div class="card-body">
+                            <a class="card_btn" href="{% url 'charter:index' %}" style="text-decoration:none;"><div class="card-title"><span>전세</span></div></a>
+                        </div>
+                    </div>
+                    <div class="car nav_card">
+                        <div class="card-body">
+                            <a class="card_btn" href="{% url 'parsed_data:index' %}" style="text-decoration:none;"><div class="card-title"><span>주요 뉴스</span></div></a>
+                            <!--<div class="card-title"><a class="card_btn" href="{% url 'parsed_data:index' %}" style="text-decoration:none;">주요 뉴스</a></div>  -->   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 콘텐츠 블록 Start -->
+            {% block content %}
+            {% endblock %}
+            <!-- 콘텐츠 블록 End -->
+        </div>
+    </div>
+
+    <!-- 푸터 Start -->
+    <footer>
+        <div class="container">
+            <div class="footer_logo">In Jeju</div>
+            <div id="contact_info">
+                <p>
+                    <a class="text-decoration-none" href="tel:+821071938445"><i class="fa-solid fa-phone"></i>&emsp;제주특별자치도 제주시 광양9길 10</a>
+                    <br>
+                    <a class="text-decoration-none" href="mailto:484342@gmail.com"><i class="fa-solid fa-envelope"></i>&emsp;064-120</a>
+                    <br>
+                    <a class="text-decoration-none" href="https://www.instagram.com/dlwlrma" target="_blank"><i class="fa-brands fa-square-instagram"></i>&emsp;https://www.instagram.com/visitjeju.kr/</a>
+                </p>
+            </div>
+            <p style="color:#646873">Copyright © <b>jeju</b> All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- 푸터 End -->
+</div>
+</body>
+
+<script src="https://kit.fontawesome.com/500ceba5b1.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- 스크립트 블록 Start -->
+{% block extra-script %}
+
+{% endblock %}
+<!-- 스크립트 블록 End -->
+</html>

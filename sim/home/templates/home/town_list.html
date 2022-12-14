@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+
+
+
+
+{% block title %}
+home_list page
+{% endblock %}
+
+{% block extra-style %}
+
+</style>
+{% endblock %}
+
+{% block content %}
+    <h1>관광지 리스트</h1>
+    {% for object in object_list %}
+        
+    <a href="{{ object.get_absolute_url }}" class="mb-3 btn btn-outline-dark mr-2"> {{ object }} </a>
+    {% endfor %}
+    <div class="row">
+        <div class="mb-5">
+            {% for object in object_list %}
+                <div class="d-block mt-3 mb-5">
+                    <a href="{{ object.get_absolute_url }}" class="mb-3 btn btn-outline-dark"> {{ object }} </a>
+                    <p class="ml-5">{{ object.description }}</p>
+                    <div class="ml-5 row">   
+                    {% for home in object.home_set.all|slice:":4" %}
+                        <div class="col-3">
+                        <a href="{{ home.get_absolute_url }}" class="btn border">
+                            <img src="{{ home.image.thumb_url }}" alt="{{ home }}" width="200px">
+                            <p>{{ home }}</p>
+                        </a>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block footer %}
+
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'base.html'%}
+
+
+{% load static %}
+
+{% block title %}
+phto_list page
+{% endblock %}
+
+{% block extra-style %}
+<style>
+    #button{
+        margin: 0.1rem;
+    }
+    #btn{
+        padding: 6px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+      <tr >
+        <th scope="col">출발</th>
+        <th scope="col"></th>
+        <th scope="col">도착지</th>
+        <th scope="col">일정편</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="m-1">
+        <td>무안 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_1' %}" style="color: rgb(254, 164, 53)"> 비행편  </a></div></td>        
+      </tr>
+      <tr class="m-3">
+        <td>광주 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_2' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>           
+      </tr>
+      <tr class="m-3">
+        <td>군산 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_3' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>여수 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_4' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>원주 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_5' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>양양 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_6' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>김해 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_7' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>사천 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_8' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>울산 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_9' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>인천 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_10' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>김포 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_11' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>포항 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_12' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>대구 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_13' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>청주 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_14' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+      <tr class="m-3">
+        <td>청주 </td>
+        <td><img src="{% static 'img/항공사 로고/비행기4.png' %}" alt="비행기"  width="30"></td>
+        <td>제주</td>
+        <td id="btn"><div id="button" class=" mx-1 btn btn-outline-warning" ><a href="{% url 'airport:airport_15' %}" style="color: rgb(254, 164, 53)"> 비행편 </a> </div></td>          
+      </tr>
+    </tbody>
+  </table>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+{% endblock %}

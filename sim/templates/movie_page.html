@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+
+
+{% load static %}
+
+{% block title %}
+MOVIE api
+{% endblock %}
+
+{% block extra-style %}
+
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<h1>API 사용</h1>
+
+<h1>주세용 사용</h1>
+
+
+\
+
+{{ boxOfficeResult.boxofficeType }}
+
+
+{% for movie in boxOfficeResult.weeklyBoxOfficeList %}
+
+    <li>{{ movie.rank }} {{ movie.movieNm }}</li>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+{% endblock %}
